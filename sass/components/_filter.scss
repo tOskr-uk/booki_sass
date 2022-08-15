@@ -1,0 +1,163 @@
+// COMPONENTS
+// ----------
+// For smaller components, there is the components/ folder. While layout/ is macro (defining the 
+// global wireframe), components/ is more focused on widgets. It contains all kind of specific 
+// modules like a slider, a loader, a widget, and basically anything along those lines. There are 
+// usually a lot of files in components/ since the whole site/application should be mostly composed 
+// of tiny modules.
+
+// https://sass-guidelin.es/#architecture
+
+// ------------------------------------------------------------------------------------------------------
+
+@mixin filter-border($color){
+    border: 2px solid $color;
+}
+    
+
+.filters {
+    display: flex;
+    
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1.6rem;
+        list-style-type: none;
+        align-items: center;
+        margin-left: 2rem;
+        
+        li {
+            position: relative;
+
+            &:nth-child(1){
+                @include breakpoint-mobile {
+                    order: 1;
+                }
+            }
+    
+            &:nth-child(2){
+                @include breakpoint-mobile {
+                    order: 3;
+                }
+            }
+    
+            &:nth-child(3){
+                @include breakpoint-mobile {
+                    order: 2;
+                }
+            }
+            
+            &:nth-child(4){
+                @include breakpoint-mobile {
+                    order: 4;
+                }
+            }
+
+            label {
+                display: block;
+                height: 4rem;
+                line-height: 2.2rem;
+                @include filter-border($color-background);
+                border-radius: 10rem;
+                padding: .8rem 2rem 0 5rem;
+                cursor: pointer;
+                font-weight: bold;
+                user-select: none;
+                transition: all 0.2s;
+                
+                &::before  {
+                    content: "";
+                    height: 100%;
+                    width: 100%;   
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            div {
+                height: 4rem;
+                width: 4rem;
+                background-color: $color-secondary;
+                @include filter-border($color-secondary);
+                border-radius: 10rem;
+                color: $color-primary;
+            
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                position: absolute;
+                top: 0;
+                left: 0;
+                
+                transition: all 0.2s;
+            }   
+        }
+    }
+    
+    input[type=checkbox] {
+        visibility: hidden;
+        position: absolute;
+        top: -10rem;
+        left: -10rem;
+        
+        &:hover ~ div {
+            @include filter-border($color-primary);
+            background-color: $color-primary;
+            color: $color-secondary;
+
+            @include breakpoint-mobile {
+                /* HOVER RESET FOR MOBILE DEVICES */
+                border: 2px solid $color-secondary;
+                background-color: $color-secondary;
+                color: $color-primary;
+            }
+        }
+
+        &:hover ~ label {
+            @include filter-border($color-primary);
+            color: $color-primary;
+
+            @include breakpoint-mobile {
+                /* HOVER RESET FOR MOBILE DEVICES */
+                border: 2px solid $color-background;
+                color: inherit;
+            }    
+        }
+
+        &:checked ~ label {
+            @include filter-border($color-primary);
+            color: $color-primary;
+
+            @include breakpoint-mobile {
+                /* HOVER RESET FOR MOBILE DEVICES */
+                border: 2px solid $color-primary;
+                color: $color-primary;
+            }
+        }
+
+        &:checked ~ div {
+            @include filter-border($color-primary);
+            background-color: $color-primary;
+            box-shadow: 2px 2px 7px 1px #000;
+            color: $color-secondary;
+            font-size: 110%;
+            height: 4.6rem;
+            width: 4.6rem;
+            top: -4px;
+            left: -3px;
+            transform: rotateZ(360deg);
+
+            @include breakpoint-mobile {
+                /* HOVER RESET FOR MOBILE DEVICES */
+                border: 2px solid $color-primary;
+                background-color: $color-primary;
+                color: $color-secondary;
+            }
+        } 
+    }    
+}
+
+
+

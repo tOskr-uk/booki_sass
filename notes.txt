@@ -1,0 +1,43 @@
+Questions
+
+
+
+v1.1
+
+Questions
+---------
+- I noticed the order of the filters changes from the breakpoint views. Is this a 
+  requirement?
+
+- Also, the 'pets allowed' filter has a lot of extra white space at the end.  Is 
+  this expected in the actual page?
+
+- Can i add additional media queries to better manage styles between the specified 
+  in the scope? e.g. font sizes withnin the cards. To build as per the design 
+  provided the font sizes in the cards (accomodation section as example) will wrap
+  when the page shrinks to the min desktop breakpoint (992px) resulting in the card
+  contents being pushed outside the card boundaries (card height is fixed). 
+
+  If i tweek the font size so they stay on one line until the 768px breakpoint they
+  are not to scale in desktop view and dont match the design in the scope.
+
+- Activities section: Is there a better way to build this maintaining grid dims 
+  for gaps and images? Currently using margins but the leftmost and rightmost grid 
+  elements are slightly larger than the rest due to only having  margins applied 
+  to one side. How would you approach this section?
+ 
+- Funtional Spec states: All maps for accommodation and activities should be 
+  entirely clickable (and not just the title). For the time being the links are
+  empty. You can use a “href=”#”” attribute to simulate the presence of a link.
+
+  What exactly are the 'maps'? i had presumed these were the nav maps / links but 
+  the 4th bullet point states these should link to the sections of the page so would 
+  therefore not use a href="#".
+
+  - Do we have to use normalise.css or can we use resets?
+
+
+ToDo
+----
+- put links on the footer lists.
+- links on the cards.

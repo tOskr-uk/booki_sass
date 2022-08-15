@@ -1,0 +1,75 @@
+// COMPONENTS
+// ----------
+// For smaller components, there is the components/ folder. While layout/ is macro (defining the 
+// global wireframe), components/ is more focused on widgets. It contains all kind of specific 
+// modules like a slider, a loader, a widget, and basically anything along those lines. There are 
+// usually a lot of files in components/ since the whole site/application should be mostly composed 
+// of tiny modules.
+
+// https://sass-guidelin.es/#architecture
+
+// ------------------------------------------------------------------------------------------------------
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 15px 2px #aaa;
+    font-size: 90%;
+    position: relative;
+    
+    transition: all 0.2s;
+    
+    
+    &__link {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &__image {
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    &__desc {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        justify-content: space-between;
+        margin: 0 1rem;
+    }
+    
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 15px 1px #666;  
+        
+        @include breakpoint-tablet {
+            /* HOVER RESET FOR MOBILE DEVICES */
+            transform: scale(1);
+            box-shadow: 2px 2px 15px 2px #aaa;
+            
+        }
+    }
+    
+    
+    
+    .star-rating {
+        color: $color-primary;
+        margin-bottom: .8rem;
+        
+        &--off {
+            color: $color-background;
+        }
+    }
+}
+
+
+
+
+

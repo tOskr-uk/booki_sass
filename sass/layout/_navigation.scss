@@ -1,0 +1,127 @@
+// LAYOUT
+// ------
+// The layout folder contains everything that takes part in laying out the site or application. 
+// This folder could have stylesheets for the main parts of the site (header, footer, navigation, 
+// sidebar…), the grid system or even CSS styles for all the forms.
+
+// https://sass-guidelin.es/#architecture
+
+// ------------------------------------------------------------------------------------------------------
+
+@mixin nav-border($loc, $size, $color){
+    border-#{$loc}: $size solid $color;
+}
+
+.nav {
+    @include breakpoint-mobile {
+        width: 100%;
+    }
+    
+    ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        
+        li {
+            width: 15rem;
+            @include nav-border(top, 2px, transparent);
+            @include nav-border(bottom, 4px, transparent);
+
+            @include breakpoint-mobile {
+                width: 50%;
+                border-bottom: 4px solid $color-background;
+            }
+
+            &:nth-child(1):hover {
+                @include breakpoint-tablet{
+                    /* HOVER RESET FOR MOBILE DEVICES */
+                    color: inherit;
+                    font-weight: normal;  
+                    border-top: 2px solid transparent;
+                }
+
+                @include breakpoint-mobile {
+                    /* HOVER RESET FOR MOBILE DEVICES */
+                    border-bottom: 4px solid var(--color-background);
+                    color: inherit;
+                    font-weight: lighter; 
+                }
+            }
+
+            &:nth-child(2):hover {
+                @include breakpoint-mobile {
+                    /* HOVER RESET FOR MOBILE DEVICES */
+                    border-top: 2px solid transparent;
+                }
+            }
+
+
+
+
+            &:nth-child(1):hover ~ li{
+                @include breakpoint-tablet{
+                    /* HOVER RESET FOR MOBILE DEVICES */
+                    color: var(--color-primary);
+                    font-weight: bold;  
+                    border-top: 2px solid var(--color-primary);
+                }
+
+                @include breakpoint-mobile {
+                    /* HOVER RESET FOR MOBILE DEVICES */
+                    border-bottom: 4px solid var(--color-primary);
+                    border-top: 2px solid transparent;
+                    color: var(--color-primary);
+                    font-weight: bold; 
+                }
+            }
+
+
+            &:first-child {
+                order: 2;
+            }
+            
+            &:last-child {
+                order: 1;
+            }
+
+            &:hover {
+                @include breakpoint-tablet {
+                    border-top: 2px solid var(--color-primary);
+                    color: var(--color-primary);
+                    font-weight: bold; 
+                }
+
+                @include nav-border(top, 2px, $color-primary);
+                color: $color-primary;
+                font-weight: bold; 
+            
+                & ~ li {
+                    @include nav-border(top, 2px, $color-background);
+                    color: inherit;
+                    font-weight: lighter; 
+                }
+            }
+
+            a {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: inherit;
+                height: 8rem;
+            }
+        }
+    }
+
+    .nav-active {
+        // border-top: 2px solid $color-primary;
+        @include nav-border(top,  2px, $color-primary);
+        color: $color-primary;
+        font-weight: bold; 
+
+        @include breakpoint-mobile  {
+            border-top: 2px solid transparent;
+            border-bottom: 4px solid var(--color-primary);
+        }
+    }
+}

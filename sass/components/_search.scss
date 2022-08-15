@@ -1,0 +1,83 @@
+
+$search-height: 4.5rem;
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    height: $search-height;
+    border-radius: 1rem;    
+    margin-bottom: 3rem;
+    overflow: hidden;
+    max-width: 40rem;
+    font-size: 1.8rem;
+
+    @include breakpoint-mobile {
+        max-width: 100%;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        background-color: $color-background;
+        border: 1px solid $color-background;
+        width: $search-height;
+    }
+
+    input[type=text],
+    input[type=text]:active {
+        border: 1px solid $color-background;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: inherit;
+        padding: 0 2rem 0 1rem;
+        outline: none;
+        flex-grow: 1;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    
+        color: white;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: inherit;
+        letter-spacing: .12rem;
+    
+        background-color: $color-primary;
+        border: 1px solid $color-primary;
+
+        @include breakpoint-mobile {
+            width: 4.5rem;
+            border-radius: 1rem;
+            
+            position: relative;
+            left: -15px;
+        }
+        
+        > * {
+            display: block;
+            padding: 2rem;
+        }
+
+        i {
+            display: none;
+            position: absolute;
+
+            @include breakpoint-mobile {
+                display: block;
+                font-size: 120%;
+            }
+        }
+
+        span {
+            @include breakpoint-mobile {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+// ABSTRACTS / UTILS
+// -----------------
+// The abstracts folder (utils here) gathers all Sass tools and helpers used across the project. 
+// Every global variable, function, mixin and placeholder should be put in here. The rule of 
+// thumb for this folder is that it should not output a single line of CSS when compiled on its 
+// own. These are nothing but Sass helpers.
+
+// https://sass-guidelin.es/#architecture
+
+
+$color-primary: #0065FC;
+$color-secondary: #DEEBFF;
+$color-background: #F2F2F2;
+$color-white: #FFF;
+$color-black: #000;
+
+$section-margin: 25px;
+$grid-gap: 30px;
+
+$card-height-1: 140px;
+$card-height-2: 205px;

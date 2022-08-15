@@ -1,0 +1,43 @@
+// BASE
+// ----
+// The base folder holds the boilerplate code for the project. In there, you might find the 
+// reset file, some typographic rules, and probably a stylesheet defining some standard styles 
+// for commonly used HTML elements (that I like to call _base.scss).
+
+// https://sass-guidelin.es/#architecture
+
+// ------------------------------------------------------------------------------------------------------
+
+
+html {
+    // font-size: 62.5%;
+    font-size: 60%;
+}
+
+body {
+    font-family: Raleway, Arial, sans-serif;
+    color: $color-black;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2{
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+label {
+    font-size: 1.8rem;
+}

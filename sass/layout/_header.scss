@@ -1,0 +1,23 @@
+// LAYOUT
+// ------
+// The layout folder contains everything that takes part in laying out the site or application. 
+// This folder could have stylesheets for the main parts of the site (header, footer, navigation, 
+// sidebar…), the grid system or even CSS styles for all the forms.
+
+// https://sass-guidelin.es/#architecture
+
+// ------------------------------------------------------------------------------------------------------
+
+.header  {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 0;
+    justify-content: space-between;
+    margin: 0 $section-margin 2rem $section-margin;
+    
+    @include breakpoint-mobile {
+        flex-direction: column;
+        align-items: center;
+        margin: 0 0 4rem 0;
+    }
+}
